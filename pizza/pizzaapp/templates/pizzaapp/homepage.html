@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand">Welcome</a>
+
+    <a class="btn btn-danger" href="/loginuser/">login</a>
+</nav>
+
+{% for message in messages %}
+<p style="text-align:center">{{ message }}</p>
+{% endfor %}
+
+<div class="container-fluid" style="position:relative; heigth:900px; background-size:cover; background-image: url({% static 'img/index.jpeg' %})">
+    <div style="position:absolute; top:50px; right:20px; width:500px;height:350px;
+    background-color:orange; padding:40px" class="container">
+        <h1 style="text-align:center; color:white">Sign Up!!!</h1>
+        <form action="/signupuser/" method="POST">
+            {% csrf_token %}
+            <input type="text" class="form-control" placeholder="username" name="username" style="margin-bottom:10px">
+            <input type="text" class="form-control" placeholder="password" name="password" style="margin-bottom:10px">
+            <input type="text" class="form-control" placeholder="phoneno" name="phoneno" style="margin-bottom:10px">
+            <input style="display:block; margin:auto; margin-top:20px" class="btn btn-success" type="submit">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

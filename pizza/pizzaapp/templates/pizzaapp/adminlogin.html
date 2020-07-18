@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div style =' padding:20px;  width:300px ; background-color:#d3def0;  display:block; margin:auto; margin-top:150px'>
+    <form method = 'POST' action = '/adminauthenticate/'>
+        {% csrf_token %}
+        <h1 style=' text-align:center'> Admin Login </h1>
+        <br/>
+        <h3> Username : </h3>
+        <input type="text" class='form-control' placeholder='username here' name="username">
+        <br/>
+        <h3> Password : </h3>
+        <input type="password" class='form-control' placeholder='your password' name="password">
+        <br/>
+        <input type="submit" style='display:block; margin:auto ; margin-top:10px ;' class='btn btn-primary' name="">
+
+    </form>
+</div>
+<br/>
+    {% for message  in messages %}
+        <p style='text-align:center ;color:red'> {{ message }} </p>
+    {% endfor %}
+
+
+{% endblock content %}
